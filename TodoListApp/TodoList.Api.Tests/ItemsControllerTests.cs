@@ -19,13 +19,13 @@ namespace TodoList.Api.Tests
     {
         readonly Item[] _defaultItems =         
         {
-            new Item() {Id = 1, Text = "First"},
-            new Item() {Id = 2, Text = "Second"},
-            new Item() {Id = 3, Text = "Third"}
+            new Item() {Id = Guid.Empty, Text = "First"},
+            new Item() {Id = Guid.Empty, Text = "Second"},
+            new Item() {Id = Guid.Empty, Text = "Third"}
         };
         readonly ItemComparer _comparer = new ItemComparer();
 
-        readonly Item _mockItem = new Item() { Id = 9, Text = "Item" };
+        readonly Item _mockItem = new Item() { Id = Guid.Empty, Text = "Item" };
 
         [Test]
         public async Task Get_ReturnsDefaultItemsWithOkStatusCode()

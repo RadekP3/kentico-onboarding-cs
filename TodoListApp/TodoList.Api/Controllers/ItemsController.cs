@@ -14,9 +14,9 @@ namespace TodoList.Api.Controllers
     {
         private static readonly Item[] DefaultItems =
         {
-            new Item() {Id = 1, Text = "First"},
-            new Item() {Id = 2, Text = "Second"},
-            new Item() {Id = 3, Text = "Third"}
+            new Item() {Id = Guid.Empty, Text = "First"},
+            new Item() {Id = Guid.Empty, Text = "Second"},
+            new Item() {Id = Guid.Empty, Text = "Third"}
         };
 
         // GET: api/items
