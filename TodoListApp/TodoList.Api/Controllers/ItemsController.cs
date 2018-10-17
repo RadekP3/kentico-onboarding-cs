@@ -21,31 +21,31 @@ namespace TodoList.Api.Controllers
 
         // GET: api/items
         [Route("")]
-        public async Task<IHttpActionResult> Get() =>
+        public async Task<IHttpActionResult> GetAsync() =>
             await Task.FromResult(Ok(DefaultItems));
 
 
         // GET: api/items/5
         [Route("{id:int}")]
-        public async Task<IHttpActionResult> Get(int id) =>
+        public async Task<IHttpActionResult> GetAsync(int id) =>
             await Task.FromResult(Ok(DefaultItems[0]));
 
 
         // POST: api/items
         [Route("")]
-        public async Task<IHttpActionResult> Post([FromBody] Item item) =>
+        public async Task<IHttpActionResult> PostAsync([FromBody] Item item) =>
             await Task.FromResult(Created($"api/items/{DefaultItems[0].Id}", DefaultItems[0]));
 
 
         // PUT: api/items/5
         [Route("{id:int}")]
-        public async Task<IHttpActionResult> Put(int id, [FromBody] Item item) =>
+        public async Task<IHttpActionResult> PutAsync(int id, [FromBody] Item item) =>
             await Task.FromResult(Ok(DefaultItems[1]));
 
 
         // DELETE: api/Items/5
         [Route("{id:int}")]
-        public async Task<IHttpActionResult> Delete(int id) =>
+        public async Task<IHttpActionResult> DeleteAsync(int id) =>
             await Task.FromResult(Ok(DefaultItems[0]));
     }
 }
