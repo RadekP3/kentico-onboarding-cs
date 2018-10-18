@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Results;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
 using TodoList.Api.Comparers;
 using TodoList.Api.Controllers;
 using TodoList.Api.Models;
