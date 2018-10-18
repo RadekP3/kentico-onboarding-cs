@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TodoList.Api.Models;
 
-namespace TodoList.Api.Comparers
+namespace TodoList.Api.Tests.Comparers
 {
     public class ItemComparer: IEqualityComparer<Item>
     {

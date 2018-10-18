@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using NUnit.Framework;
-using TodoList.Api.Comparers;
 using TodoList.Api.Controllers;
 using TodoList.Api.Models;
+using TodoList.Api.Tests.Comparers;
 using TodoList.Api.Tests.Extensions;
 
 namespace TodoList.Api.Tests
