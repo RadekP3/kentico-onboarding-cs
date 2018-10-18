@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Comparers\ItemComparer.cs" />
     <Compile Include="DummyTests.cs" />
+    <Compile Include="Extensions\ControllerExtension.cs" />
     <Compile Include="ItemsControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +75,7 @@
       <Name>TodoList.Api</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
