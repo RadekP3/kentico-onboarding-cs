@@ -26,7 +26,7 @@ namespace TodoList.Api.Controllers
 
         // GET: api/v{version}/items/5
         [Route("{id:int}")]
-        public async Task<IHttpActionResult> GetAsync(int id) =>
+        public async Task<IHttpActionResult> GetAsync(Guid id) =>
             await Task.FromResult(Ok(DefaultItems[0]));
 
 
@@ -38,13 +38,13 @@ namespace TodoList.Api.Controllers
 
         // PUT: api/v{version}/items/5
         [Route("{id:int}")]
-        public async Task<IHttpActionResult> PutAsync(int id, [FromBody] Item item) =>
+        public async Task<IHttpActionResult> PutAsync(Guid id, [FromBody] Item item) =>
             await Task.FromResult(Ok(DefaultItems[1]));
 
 
         // DELETE: api/v{version}/Items/5
         [Route("{id:int}")]
-        public async Task<IHttpActionResult> DeleteAsync(int id) =>
+        public async Task<IHttpActionResult> DeleteAsync(Guid id) =>
             await Task.FromResult(Ok(DefaultItems[0]));
     }
 }

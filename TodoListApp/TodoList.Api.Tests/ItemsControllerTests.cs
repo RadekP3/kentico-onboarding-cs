@@ -36,7 +36,7 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task GetAsync_Id_ReturnsFirstItemWithOkStatusCode()
         {
-            var actionResult = await _controller.ExecuteAction(controller => controller.GetAsync(2));
+            var actionResult = await _controller.ExecuteAction(controller => controller.GetAsync(Guid.Empty));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
@@ -55,7 +55,7 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task PutAsync_Id_Item_ReturnSecondItemWithOkStatusCode()
         {
-            var actionResult = await _controller.ExecuteAction(controller => controller.PutAsync(0, _mockItem));
+            var actionResult = await _controller.ExecuteAction(controller => controller.PutAsync(Guid.Empty, _mockItem));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
@@ -65,7 +65,7 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task DeleteAsync_Id_ReturnsFirstItemWithOkStatusCode()
         {
-            var actionResult = await _controller.ExecuteAction(controller => controller.DeleteAsync(0));
+            var actionResult = await _controller.ExecuteAction(controller => controller.DeleteAsync(Guid.Empty));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
