@@ -19,31 +19,25 @@ namespace TodoList.Api.Controllers
         };
 
         // GET: api/v{version}/items
-        [Route("")]
         public async Task<IHttpActionResult> GetAsync() =>
             await Task.FromResult(Ok(DefaultItems));
 
-
-        // GET: api/v{version}/items/5
-        [Route("{id:int}")]
+        // GET: api/v{version}/items/9cece279-9343-4214-b03f-1062a047727e
+        [Route("{id:Guid}")]
         public async Task<IHttpActionResult> GetAsync(Guid id) =>
             await Task.FromResult(Ok(DefaultItems[0]));
 
-
         // POST: api/v{version}/items
-        [Route("")]
         public async Task<IHttpActionResult> PostAsync([FromBody] Item item) =>
             await Task.FromResult(Created($"api/items/{DefaultItems[0].Id}", DefaultItems[0]));
 
-
-        // PUT: api/v{version}/items/5
-        [Route("{id:int}")]
+        // PUT: api/v{version}/items/9cece279-9343-4214-b03f-1062a047727e
+        [Route("{id:Guid}")]
         public async Task<IHttpActionResult> PutAsync(Guid id, [FromBody] Item item) =>
             await Task.FromResult(Ok(DefaultItems[1]));
 
-
-        // DELETE: api/v{version}/Items/5
-        [Route("{id:int}")]
+        // DELETE: api/v{version}/items/9cece279-9343-4214-b03f-1062a047727e
+        [Route("{id:Guid}")]
         public async Task<IHttpActionResult> DeleteAsync(Guid id) =>
             await Task.FromResult(Ok(DefaultItems[0]));
     }
