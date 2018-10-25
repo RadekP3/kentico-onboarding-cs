@@ -1,10 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TodoList.Api.Models;
 
 namespace TodoList.Api.Tests.Comparers
 {
-    public class ItemComparer: IEqualityComparer<Item>
+    public sealed class ItemComparer: IEqualityComparer<Item>
     {
+        private static readonly Lazy<ItemComparer> Lazy = new Lazy<ItemComparer>(() => new ItemComparer());
+
+        public static ItemComparer GetItemComparer() => Lazy.Value;
+
+        private ItemComparer()
+        {
+        }
+
         public bool Equals(Item x, Item y)
         {
             if (ReferenceEquals(x, y)) return true;
