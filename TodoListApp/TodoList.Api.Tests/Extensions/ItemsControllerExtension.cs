@@ -7,7 +7,7 @@ using TodoList.Api.Controllers;
 
 namespace TodoList.Api.Tests.Extensions
 {
-    public static class ControllerExtension
+    public static class ItemsControllerExtension
     {
         public static async Task<HttpResponseMessage> ExecuteAction(this ItemsController controller, Func<ItemsController, Task<IHttpActionResult>> action)
         {
