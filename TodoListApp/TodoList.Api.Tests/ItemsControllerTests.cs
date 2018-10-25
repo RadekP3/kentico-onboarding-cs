@@ -33,7 +33,6 @@ namespace TodoList.Api.Tests
             };
         }
 
-
         [Test]
         public async Task GetAsync_ReturnsDefaultItemsWithOkStatusCode()
         {
@@ -58,11 +57,14 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task PostAsync_Item_ReturnsFirstItemWithCreatedStatusCode()
         {
+            var expectedUri = "api/items/9cece279-9343-4214-b03f-1062a047727e";
             var mockItem = new Item {Id = new Guid("2daa5641-f500-4021-adc9-47b08806cd6c"), Text = "Item to post"};
+
             var actionResult = await _controller.ExecuteAction(controller => controller.PostAsync(mockItem));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+            Assert.That(actionResult.Headers.Location.ToString(), Is.EqualTo(expectedUri));
             Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[0]).UsingItemComparer());
         }
 
