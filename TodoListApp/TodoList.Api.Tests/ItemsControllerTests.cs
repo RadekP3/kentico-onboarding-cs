@@ -44,7 +44,7 @@ namespace TodoList.Api.Tests
         }
 
         [Test]
-        public async Task GetAsync_Id_ReturnsFirstItemWithOkStatusCode()
+        public async Task GetAsync_MockId_ReturnsFirstItemWithOkStatusCode()
         {
             var mockId = new Guid("af825433-d9e4-484f-b6ff-469b5dbb6238");
 
@@ -56,7 +56,7 @@ namespace TodoList.Api.Tests
         }
 
         [Test]
-        public async Task PostAsync_Item_ReturnsFirstItemWithCreatedStatusCode()
+        public async Task PostAsync_MockItem_ReturnsFirstItemWithCreatedStatusCode()
         {
             var expectedUri = "api/items/9cece279-9343-4214-b03f-1062a047727e";
             var mockItem = new Item {Id = new Guid("2daa5641-f500-4021-adc9-47b08806cd6c"), Text = "Item to post"};
@@ -70,12 +70,12 @@ namespace TodoList.Api.Tests
         }
 
         [Test]
-        public async Task PutAsync_Id_Item_ReturnSecondItemWithOkStatusCode()
+        public async Task PutAsync_MockId_MockItem_ReturnSecondItemWithOkStatusCode()
         {
-            var itemId = new Guid("f4968efb-4f1e-445b-b907-6ba0ac63bc01");
-            var mockItem = new Item {Id = itemId, Text = "Item to put"};
+            var mockId = new Guid("f4968efb-4f1e-445b-b907-6ba0ac63bc01");
+            var mockItem = new Item {Id = mockId, Text = "Item to put"};
 
-            var actionResult = await _controller.ExecuteAction(controller => controller.PutAsync(itemId, mockItem));
+            var actionResult = await _controller.ExecuteAction(controller => controller.PutAsync(mockId, mockItem));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
@@ -83,7 +83,7 @@ namespace TodoList.Api.Tests
         }
 
         [Test]
-        public async Task DeleteAsync_Id_ReturnsFirstItemWithOkStatusCode()
+        public async Task DeleteAsync_MockId_ReturnsFirstItemWithOkStatusCode()
         {
             var mockId = new Guid("26327007-e8e8-4112-984f-a42ce03e99aa");
 
