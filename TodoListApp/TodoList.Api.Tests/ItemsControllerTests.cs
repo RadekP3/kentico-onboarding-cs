@@ -47,6 +47,7 @@ namespace TodoList.Api.Tests
         public async Task GetAsync_Id_ReturnsFirstItemWithOkStatusCode()
         {
             var mockId = new Guid("af825433-d9e4-484f-b6ff-469b5dbb6238");
+
             var actionResult = await _controller.ExecuteAction(controller => controller.GetAsync(mockId));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
@@ -85,6 +86,7 @@ namespace TodoList.Api.Tests
         public async Task DeleteAsync_Id_ReturnsFirstItemWithOkStatusCode()
         {
             var mockId = new Guid("26327007-e8e8-4112-984f-a42ce03e99aa");
+
             var actionResult = await _controller.ExecuteAction(controller => controller.DeleteAsync(mockId));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
