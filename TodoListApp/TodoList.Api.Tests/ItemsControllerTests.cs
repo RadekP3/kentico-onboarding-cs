@@ -19,7 +19,6 @@ namespace TodoList.Api.Tests
             new Item {Id = new Guid("5f24635c-e42f-4c99-8156-a8b94b213d0b"), Text = "Second"},
             new Item {Id = new Guid("779f5f6a-a31d-4956-98bd-3ac7d20993e7"), Text = "Third"}
         };
-        readonly Item _mockItem = new Item() { Id = Guid.Empty, Text = "Item" };
         readonly ItemsController _controller = new ItemsController() { Configuration = new HttpConfiguration(), Request = new HttpRequestMessage()};
 
         [Test]
@@ -34,7 +33,8 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task GetAsync_Id_ReturnsFirstItemWithOkStatusCode()
         {
-            var actionResult = await _controller.ExecuteAction(controller => controller.GetAsync(Guid.Empty));
+            var mockId = new Guid("af825433-d9e4-484f-b6ff-469b5dbb6238");
+            var actionResult = await _controller.ExecuteAction(controller => controller.GetAsync(mockId));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
@@ -44,7 +44,8 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task  PostAsync_Item_ReturnsFirstItemWithCreatedStatusCode()
         {
-            var actionResult = await _controller.ExecuteAction(controller => controller.PostAsync(_mockItem));
+            var mockItem = new Item { Id = new Guid("2daa5641-f500-4021-adc9-47b08806cd6c"), Text = "Item to post" };
+            var actionResult = await _controller.ExecuteAction(controller => controller.PostAsync(mockItem));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.Created));
@@ -53,7 +54,10 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task PutAsync_Id_Item_ReturnSecondItemWithOkStatusCode()
         {
-            var actionResult = await _controller.ExecuteAction(controller => controller.PutAsync(Guid.Empty, _mockItem));
+            var itemId = new Guid("f4968efb-4f1e-445b-b907-6ba0ac63bc01");
+            var mockItem = new Item { Id = itemId , Text = "Item to put" };
+
+            var actionResult = await _controller.ExecuteAction(controller => controller.PutAsync(itemId, mockItem));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
@@ -63,7 +67,8 @@ namespace TodoList.Api.Tests
         [Test]
         public async Task DeleteAsync_Id_ReturnsFirstItemWithOkStatusCode()
         {
-            var actionResult = await _controller.ExecuteAction(controller => controller.DeleteAsync(Guid.Empty));
+            var mockId = new Guid("26327007-e8e8-4112-984f-a42ce03e99aa");
+            var actionResult = await _controller.ExecuteAction(controller => controller.DeleteAsync(mockId));
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
