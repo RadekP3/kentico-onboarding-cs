@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace TodoList.Api.Tests
         public async Task GetAsync_ReturnsDefaultItemsWithOkStatusCode()
         {
             var actionResult = await _controller.ExecuteAction(controller => controller.GetAsync());
-            actionResult.TryGetContentValue(out Item[] itemsFromMessage);
+            actionResult.TryGetContentValue(out IEnumerable<Item> itemsFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             Assert.That(itemsFromMessage, Is.EqualTo(_defaultItems).UsingItemComparer());
