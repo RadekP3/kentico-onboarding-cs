@@ -6,7 +6,6 @@ using System.Web.Http;
 using NUnit.Framework;
 using TodoList.Api.Controllers;
 using TodoList.Api.Models;
-using TodoList.Api.Tests.Comparers;
 using TodoList.Api.Tests.Extensions;
 
 namespace TodoList.Api.Tests
@@ -20,7 +19,6 @@ namespace TodoList.Api.Tests
             new Item {Id = new Guid("5f24635c-e42f-4c99-8156-a8b94b213d0b"), Text = "Second"},
             new Item {Id = new Guid("779f5f6a-a31d-4956-98bd-3ac7d20993e7"), Text = "Third"}
         };
-        readonly ItemComparer _comparer = new ItemComparer();
         readonly Item _mockItem = new Item() { Id = Guid.Empty, Text = "Item" };
         readonly ItemsController _controller = new ItemsController() { Configuration = new HttpConfiguration(), Request = new HttpRequestMessage()};
 
@@ -31,7 +29,7 @@ namespace TodoList.Api.Tests
             actionResult.TryGetContentValue(out Item[] itemsFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(itemsFromMessage, Is.EqualTo(_defaultItems).Using(_comparer));
+            Assert.That(itemsFromMessage, Is.EqualTo(_defaultItems).UsingItemComparer());
         }
         [Test]
         public async Task GetAsync_Id_ReturnsFirstItemWithOkStatusCode()
@@ -40,7 +38,7 @@ namespace TodoList.Api.Tests
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[0]).Using(_comparer));
+            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[0]).UsingItemComparer());
         }
 
         [Test]
@@ -50,7 +48,7 @@ namespace TodoList.Api.Tests
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.Created));
-            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[0]).Using(_comparer));
+            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[0]).UsingItemComparer());
         }
         [Test]
         public async Task PutAsync_Id_Item_ReturnSecondItemWithOkStatusCode()
@@ -59,7 +57,7 @@ namespace TodoList.Api.Tests
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[1]).Using(_comparer));
+            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[1]).UsingItemComparer());
         }
 
         [Test]
@@ -69,7 +67,7 @@ namespace TodoList.Api.Tests
             actionResult.TryGetContentValue(out Item itemFromMessage);
 
             Assert.That(actionResult.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[0]).Using(_comparer));
+            Assert.That(itemFromMessage, Is.EqualTo(_defaultItems[0]).UsingItemComparer());
         }
     }
 }

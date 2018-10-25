@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Comparers\ItemComparer.cs" />
     <Compile Include="DummyTests.cs" />
+    <Compile Include="Extensions\EqualConstraintExtension.cs" />
     <Compile Include="Extensions\ItemsControllerExtension.cs" />
     <Compile Include="ItemsControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
