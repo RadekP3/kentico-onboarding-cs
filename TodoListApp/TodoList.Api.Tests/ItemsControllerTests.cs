@@ -13,13 +13,25 @@ namespace TodoList.Api.Tests
     [TestFixture]
     public class ItemsControllerTests
     {
+        ItemsController _controller;
+
         readonly Item[] _defaultItems =         
         {
             new Item {Id = new Guid("9cece279-9343-4214-b03f-1062a047727e"), Text = "First"},
             new Item {Id = new Guid("5f24635c-e42f-4c99-8156-a8b94b213d0b"), Text = "Second"},
             new Item {Id = new Guid("779f5f6a-a31d-4956-98bd-3ac7d20993e7"), Text = "Third"}
         };
-        readonly ItemsController _controller = new ItemsController() { Configuration = new HttpConfiguration(), Request = new HttpRequestMessage()};
+
+        [SetUp]
+        public void Init()
+        {
+            _controller = new ItemsController
+                {
+                    Configuration = new HttpConfiguration(),
+                    Request = new HttpRequestMessage()
+                };
+        }
+
 
         [Test]
         public async Task GetAsync_ReturnsDefaultItemsWithOkStatusCode()
