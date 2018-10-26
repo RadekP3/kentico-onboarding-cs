@@ -9,7 +9,8 @@ namespace TodoList.Api.Tests.Extensions
 {
     public static class ItemsControllerExtension
     {
-        public static async Task<HttpResponseMessage> ExecuteAction(this ItemsController controller, Func<ItemsController, Task<IHttpActionResult>> action)
+        public static async Task<HttpResponseMessage> ExecuteAction(this ItemsController controller,
+            Func<ItemsController, Task<IHttpActionResult>> action)
         {
             var result = await action(controller);
             return await result.ExecuteAsync(CancellationToken.None);

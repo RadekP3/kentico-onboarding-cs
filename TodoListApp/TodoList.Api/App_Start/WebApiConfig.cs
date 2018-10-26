@@ -14,7 +14,7 @@ namespace TodoList.Api
             {
                 ConstraintMap =
                 {
-                    ["apiVersion"] = typeof( ApiVersionRouteConstraint )
+                    ["apiVersion"] = typeof(ApiVersionRouteConstraint)
                 }
             };
             config.MapHttpAttributeRoutes(constraintResolver);

@@ -4,7 +4,7 @@ using TodoList.Api.Models;
 
 namespace TodoList.Api.Tests.Comparers
 {
-    public sealed class ItemComparer: IEqualityComparer<Item>
+    public sealed class ItemComparer : IEqualityComparer<Item>
     {
         private static readonly Lazy<ItemComparer> Lazy = new Lazy<ItemComparer>(() => new ItemComparer());
 
