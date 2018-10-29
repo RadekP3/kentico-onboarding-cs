@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Api", "TodoList.Api\TodoList.Api.csproj", "{52B33D4D-21B9-4218-B2DA-E874C3C434AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Api", "src\TodoList.Api\TodoList.Api.csproj", "{52B33D4D-21B9-4218-B2DA-E874C3C434AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Api.Tests", "TodoList.Api.Tests\TodoList.Api.Tests.csproj", "{A060B77A-5769-40D5-AF46-E8CE198C2D1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Api.Tests", "test\TodoList.Api.Tests\TodoList.Api.Tests.csproj", "{A060B77A-5769-40D5-AF46-E8CE198C2D1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E59F0F84-EF22-4F69-8CA5-5D2A7748AE0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1D41493B-71EA-4F8F-BB62-8014AEF1E464}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +28,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52B33D4D-21B9-4218-B2DA-E874C3C434AE} = {E59F0F84-EF22-4F69-8CA5-5D2A7748AE0C}
+		{A060B77A-5769-40D5-AF46-E8CE198C2D1B} = {1D41493B-71EA-4F8F-BB62-8014AEF1E464}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B8030BB9-B081-4056-B0F0-4ED612A0EC5C}
