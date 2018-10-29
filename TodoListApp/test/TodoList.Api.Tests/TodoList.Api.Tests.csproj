@@ -49,11 +49,16 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -74,6 +79,10 @@
     <ProjectReference Include="..\..\src\TodoList.Api\TodoList.Api.csproj">
       <Project>{52B33D4D-21B9-4218-B2DA-E874C3C434AE}</Project>
       <Name>TodoList.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\TodoList.Contracts\TodoList.Contracts.csproj">
+      <Project>{9B091E02-3177-46BE-83DC-60F4704B98E9}</Project>
+      <Name>TodoList.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

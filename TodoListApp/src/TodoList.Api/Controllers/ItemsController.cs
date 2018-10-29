@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Web.Http;
-using TodoList.Api.Models;
+using TodoList.Contracts.Models;
 
 namespace TodoList.Api.Controllers
 {
